@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"html/template"
+	textTemplate "text/template"
 	"time"
 
 	"github.com/vanng822/go-premailer/premailer"
@@ -43,7 +44,7 @@ func (m *Mail) SentSMTPMessage(msg Message) error {
 		"message": msg.Data,
 	}
 
-	msg.Data = data
+	msg.DataMap = data
 
 	formattedMessage, err := m.buildHTMLMessage(msg)
 	if err != nil {
@@ -113,7 +114,7 @@ func (m *Mail) buildHTMLMessage(msg Message) (string, error) {
 func (m *Mail) buildPlainMessage(msg Message) (string, error) {
 	templateToRender := "./templates/mail.plain.gohtml"
 
-	t, err := template.New("email-plain").ParseFiles(templateToRender)
+	t, err := textTemplate.New("email-plain").ParseFiles(templateToRender)
 	if err != nil {
 		return "", err
 	}
