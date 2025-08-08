@@ -50,7 +50,10 @@
                 method: "POST",
             }
 
-            fetch("http:\/\/localhost:8081", body)
+            fetch("{{.BrokerURL}}", {
+                ...body,
+                mode: 'cors'
+            })
             .then((response) => response.json())
             .then((data) => {
                 sent.innerHTML = "empty post request";
@@ -84,7 +87,15 @@
                 body: JSON.stringify(payload)
             }
 
-            fetch("http:\/\/localhost:8081/handle", body)
+            fetch("{{print .BrokerURL "/handle"}}", {
+                ...body,
+                credentials: 'include',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
             .then((response) => response.json())
             .then((data) => {
                 sent.innerHTML = JSON.stringify(payload, null, 4);
@@ -119,7 +130,15 @@
                 body: JSON.stringify(payload)
             }
 
-            fetch("http:\/\/localhost:8081/handle", body)
+            fetch("{{print .BrokerURL "/handle"}}", {
+                ...body,
+                credentials: 'include',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
             .then((response) => response.json())
             .then((data) => {
                 sent.innerHTML = JSON.stringify(payload, null, 4);
@@ -154,7 +173,15 @@
                 body: JSON.stringify(payload)
             }
 
-            fetch("http:\/\/localhost:8081/log-grpc", body)
+            fetch("{{print .BrokerURL "/log-grpc"}}", {
+                ...body,
+                credentials: 'include',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
             .then((response) => response.json())
             .then((data) => {
                 sent.innerHTML = JSON.stringify(payload, null, 4);
@@ -191,7 +218,15 @@
                 body: JSON.stringify(payload)
             }
 
-            fetch("http:\/\/localhost:8081/handle", body)
+            fetch("{{print .BrokerURL "/handle"}}", {
+                ...body,
+                credentials: 'include',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            })
             .then((response) => response.json())
             .then((data) => {
                 sent.innerHTML = JSON.stringify(payload, null, 4);
