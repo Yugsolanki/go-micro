@@ -49,7 +49,12 @@ func render(w http.ResponseWriter, t string) {
 		BrokerURL string
 	}
 
-	data.BrokerURL = os.Getenv("BROKER_URL")
+	brokerURL := os.Getenv("BROKER_URL")
+	if brokerURL == "" {
+		brokerURL = "http://localhost:8080"
+	}
+
+	data.BrokerURL = brokerURL
 
 	if err := tmpl.Execute(w, data); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
