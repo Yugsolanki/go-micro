@@ -14,7 +14,7 @@ services:
       - caddy_config:/config
 
   front-end:
-    image: yug21/front-end:1.0.7
+    image: yug21/front-end:1.0.9
     deploy:
       mode: replicated
       replicas: 1

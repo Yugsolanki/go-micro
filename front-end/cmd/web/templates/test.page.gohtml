@@ -50,10 +50,7 @@
                 method: "POST",
             }
 
-            fetch("{{.BrokerURL}}", {
-                ...body,
-                mode: 'cors'
-            })
+            fetch("{{.BrokerURL}}", body)
             .then((response) => response.json())
             .then((data) => {
                 sent.innerHTML = "empty post request";
@@ -87,15 +84,7 @@
                 body: JSON.stringify(payload)
             }
 
-            fetch("{{print .BrokerURL "/handle"}}", {
-                ...body,
-                credentials: 'include',
-                mode: 'cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-            })
+            fetch("{{print .BrokerURL "/handle"}}", body)
             .then((response) => response.json())
             .then((data) => {
                 sent.innerHTML = JSON.stringify(payload, null, 4);
@@ -130,15 +119,7 @@
                 body: JSON.stringify(payload)
             }
 
-            fetch("{{print .BrokerURL "/handle"}}", {
-                ...body,
-                credentials: 'include',
-                mode: 'cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-            })
+            fetch("{{print .BrokerURL "/handle"}}", body)
             .then((response) => response.json())
             .then((data) => {
                 sent.innerHTML = JSON.stringify(payload, null, 4);
@@ -173,15 +154,7 @@
                 body: JSON.stringify(payload)
             }
 
-            fetch("{{print .BrokerURL "/log-grpc"}}", {
-                ...body,
-                credentials: 'include',
-                mode: 'cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-            })
+            fetch("{{print .BrokerURL "/log-grpc"}}", body)
             .then((response) => response.json())
             .then((data) => {
                 sent.innerHTML = JSON.stringify(payload, null, 4);
@@ -218,15 +191,7 @@
                 body: JSON.stringify(payload)
             }
 
-            fetch("{{print .BrokerURL "/handle"}}", {
-                ...body,
-                credentials: 'include',
-                mode: 'cors',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                }
-            })
+            fetch("{{print .BrokerURL "/handle"}}", body)
             .then((response) => response.json())
             .then((data) => {
                 sent.innerHTML = JSON.stringify(payload, null, 4);
