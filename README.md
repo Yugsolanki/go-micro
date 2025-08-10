@@ -59,6 +59,7 @@ make down       # Stop all
 ```
 
 ## Deployment (Swarm)
+> *Detailed swarm guide : [swarm guide](./docs-assets/swarm_guide.md)*
 
 ```bash
 docker swarm init
